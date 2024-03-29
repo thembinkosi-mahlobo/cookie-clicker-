@@ -57,6 +57,11 @@ setInterval(function () {
   displayCookiesAmt();
 }, 100);
 
+let currCookieTile;
+let currPlantTile;
+let score = 0;
+let gameOver = false;
+
 window.onload = function () {
   setGame();
 };
@@ -66,6 +71,66 @@ function setGame() {
     //<div id ="0-8"></div>
     let tile = document.createElement("div");
     tile.id = i.toString();
+    tile.addEventListener("click", selectTile);
     document.getElementById("board").appendChild(tile);
+  }
+}
+
+setInterval(setCookie, 1000);
+setInterval(setPlant, 2000);
+
+function getRandomTile() {
+  let num = Math.floor(Math.random() * 9);
+  return num.toString();
+}
+
+function setCookie() {
+  if (gameOver) {
+    return;
+  }
+  if (currCookieTile) {
+    currCookieTile.innerHTML = "";
+  }
+
+  let cookie = document.createElement("img");
+  cookie.src = "./cookie image 1.jpg";
+
+  let num = getRandomTile();
+  if (currPlantTile && currPlantTile.id == num) {
+    return;
+  }
+  currCookieTile = document.getElementById(num);
+  currCookieTile.appendChild(cookie);
+}
+
+function setPlant() {
+  if (gameOver) {
+    return;
+  }
+  if (currPlantTile) {
+    currPlantTile.innerHTML = "";
+  }
+
+  let plant = document.createElement("img");
+  plant.src = "./piranha-plant.png";
+
+  let num = getRandomTile();
+  if (currCookieTile && currCookieTile.id == num) {
+    return;
+  }
+  currPlantTile = document.getElementById(num);
+  currPlantTile.appendChild(plant);
+}
+function selectTile() {
+  if (gameOver) {
+    return;
+  }
+  if (this == currCookieTile) {
+    score += 10;
+    document.getElementById("score").innerText = score.toString();
+  } else if (this == currPlantTile) {
+    document.getElementById("score").innerText =
+      "GAME OVER: " + score.toString();
+    gameOver = true;
   }
 }
