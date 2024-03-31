@@ -10,23 +10,30 @@
   <h1>Eat the Cookie!</h1>
   <h2></h2>
 
+  <style>
+    .custom-cursor {
+      cursor: url("cursor-biting emoji.png"), auto;
+    }
+  </style>
   <body>
     <h2 id="score">0</h2>
     <button type="button" id="cookie">Cookies Banked!</button>
     <button type="button" id="upgClicker">Upgrade Clicker Here!</button>
     <button type="button" id="autoClicker">Buy Auto Clicker Here!</button>
+
     <!-- 3x3 -->
+
     <div id="board"></div>
+
     <div class="flex-container">
       <div>You have 0 cockies!</div>
       <div>Upgrade costs 25 cookies!</div>
       <div>Auto Clicker costs 50 cookies!</div>
     </div>
 
-    <section></section>
-
-    <div class="left"></div>
-    <div class="right"></div>
+    <script>
+      document.body.classList.add("custom-cursor");
+    </script>
 
     <footer>Cook Clicker&trade;</footer>
     <F1>by Themba&copy;</F1>

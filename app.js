@@ -134,5 +134,5 @@ function selectTile() {
     gameOver = true;
   }
 }
-localStorage.setItem(`name`, `Cookie`);
-localStorage.removeItem(`name`);
+
+let cursor = document.getElementById("cursor");
