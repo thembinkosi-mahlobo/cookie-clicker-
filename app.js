@@ -93,7 +93,7 @@ function setCookie() {
   }
 
   let cookie = document.createElement("img");
-  cookie.src = "./cookie image 1.jpg";
+  cookie.src = "./cookie image  4 .png";
 
   let num = getRandomTile();
   if (currPlantTile && currPlantTile.id == num) {
@@ -134,3 +134,5 @@ function selectTile() {
     gameOver = true;
   }
 }
+localStorage.setItem(`name`, `Cookie`);
+localStorage.removeItem(`name`);
